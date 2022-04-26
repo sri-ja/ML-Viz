@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Sudo Brain</title>
+</head>
+
+<body class="text-white">
+    <div class="container py-5">
+        <h1 class="text-center display-1">
+            Sudo make pseudo brain
+        </h1>
+        <h1 class="text-center display-4">Demystifying image recognition by team sudobrain
+        </h1>
+
+        <div class="row">
+            <div class="col-4">
+                <img src="./img/puppy.png" class="img-fluid" alt="">
+            </div>
+            <div class="col-8 p-5">
+                <div class="bg-light text-dark rounded p-5 dialog">
+                    <p>
+                        Woof! I'm glad you're humble enough to call yourself a beginner! Most people aren't so humble
+                        and I
+                        have to bite them.
+                    </p>
+                    <p>
+                        As an icebreaker, can you tell me what's in the following image?
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <img src="./img/flower.jpg" alt="" class="col-md-6 ">
+        </div>
+        <div class="text-center mt-5 desktoptextbar">
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-lg" placeholder="Your guess" id="texty"
+                    onkeypress="clickPress(event)">
+                <button class="btn bg-9EB9C0" type="button" onclick="validate()">Submit</button>
+                <a class="btn btn-success d-none" href="beginner1.html" id="moveonbtn">Move on</a>
+            </div>
+        </div>
+    </div>
+    <div aria-live="polite" aria-atomic="true" class="position-relative text-dark">
+        <!-- Position it: -->
+        <!-- - `.toast-container` for spacing between toasts -->
+        <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
+        <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
+        <div class="toast-container position-fixed top-0 end-0 p-3">
+
+            <!-- Then put toasts within -->
+            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="right">
+                <div class="toast-header">
+                    <img src="./img/puppy.png" class="rounded me-2 profilepicture" alt="...">
+                    <strong class="me-auto">Puppy</strong>
+                    <small class="text-muted">Just now</small>
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button> -->
+                </div>
+                <div class="toast-body">
+                    Yayyy! You guessed right!
+                </div>
+            </div>
+            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="wrong">
+                <div class="toast-header">
+                    <img src="./img/puppy.png" class="rounded me-2 profilepicture" alt="...">
+                    <strong class="me-auto">Puppy</strong>
+                    <small class="text-muted">Just now</small>
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button> -->
+                </div>
+                <div class="toast-body">
+                    Oh nno! Please try again.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <script>
+        const clickPress = (event) => {
+            if (event.keyCode == 13) {
+                validate()
+                // do something
+            }
+        }
+
+        const validate = () => {
+            if (document.querySelector("#texty").value.toLowerCase().includes('flower') || document.querySelector("#texty").value.toLowerCase().includes('daisy')) {
+                var toastElList = [].slice.call(document.querySelectorAll('#right'))
+                var toastList = toastElList.map(function (toastEl) {
+                    // Creates an array of toasts (it only initializes them)
+                    return new bootstrap.Toast(toastEl) // No need for options; use the default options
+                });
+                toastList.forEach(toast => toast.show()); // This show them
+                document.querySelector('#moveonbtn').classList.remove('d-none')
+            }
+            else {
+                var toastElList = [].slice.call(document.querySelectorAll('#wrong'))
+                var toastList = toastElList.map(function (toastEl) {
+                    // Creates an array of toasts (it only initializes them)
+                    return new bootstrap.Toast(toastEl) // No need for options; use the default options
+                });
+                toastList.forEach(toast => toast.show()); // This show them
+
+                console.log(toastList); // Testing to see if it works
+
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="./js/scripts.js"></script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Sudo Brain</title>
+</head>
+
+<body class="text-white">
+    <div class="container py-5">
+        <h1 class="text-center display-1">
+            Sudo make pseudo brain
+        </h1>
+        <h1 class="text-center display-4">Demystifying image recognition by team sudobrain
+        </h1>
+
+
+
+        <div class="row">
+            <div class="col-8 p-5">
+                <div class="bg-light text-dark rounded p-5 dialog">
+                    <p>
+                        I have a secret! A computer does not see an image exactly like we do. What a computer sees is
+                        actually a box of pixels, or small boxes, each of which has a specific color. This color
+                        can be represented in different systems like the <a
+                            href="https://en.wikipedia.org/wiki/RGB_color_model" target="_blank">RGB system</a>.
+                    </p>
+                    <p>
+                        Those smaller boxes come together to make up a bigger picture or image that we see. You can use
+                        the 'See pixels' button to find out what color each box is.</p>
+                </div>
+            </div>
+            <div class="col-4">
+                <img src="./img/puppy.png" class="img-fluid flip" alt="">
+            </div>
+        </div>
+
+        <div class="col-md-6 m-auto">
+            <img src="./img/flower.jpg" alt="" class="img-fluid">
+            <div class="row">
+                <div class="col-6">
+                    <button class="btn bg-9EB9C0 btn-lg mt-4" id="startbtn">
+                        See pixels
+                    </button>
+                </div>
+                <div class="col-6 p-2">
+                    <p class="display-4 text-end"> <span id="result">color</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <img src="./img/puppy.png" class="img-fluid" alt="">
+            </div>
+
+            <div class="col-8 p-5">
+                <div class="bg-light text-dark rounded p-5 dialog">
+                    <p>
+                        Now, for the computer to be able to recognize it, it uses different kinds of algorithms and
+                        performs different kinds of actions on the image. One of them is known as the edge detection
+                        algorithm which uses the <a href="https://en.wikipedia.org/wiki/Sobel_operator"
+                            target="_blank">Sobel Operator</a>. I know those words sound big and
+                        scary but I promise they are not scary.
+
+                    </p>
+                    <p>
+                        What it basically does is it analyzes and works with
+                        each of the pixel of the image in order to help detect the presence of edges (or borders) in the
+                        image. That way we go from that pretty pink flower to this.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <img src="./img/edgedetected.png" alt="" class="col-md-6 ">
+        </div>
+
+
+        <div class="row">
+            <div class="col-8 p-5">
+                <div class="bg-light text-dark rounded p-5 dialog">
+                    <p>
+                        I know that image doesn't look as pretty as the original, but our computer friend finds it
+                        really helpful. So what it does now, is that it takes parts of the image and starts analyze them
+                        with already existing images in a data set. Now what is a data set you ask?
+                    </p>
+                    <p>
+                        To put it simply, it is a collection of data (images in this scenario) which we can feed to the
+                        amazing machine learning model in order to teach it about the different objects in the world,
+                        help it recognize it.
+                    </p>
+                    <p class="text-end">
+                        <a href="beginner3.html" class="btn btn-success btn-lg">Let's go further</a>
+                    </p>
+
+                </div>
+            </div>
+            <div class="col-4">
+                <img src="./img/puppy.png" class="img-fluid flip" alt="">
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+        document.getElementById("startbtn").addEventListener("click", () => {
+
+            const resultElement = document.getElementById("result");
+
+            if (!window.EyeDropper) {
+                resultElement.textContent = "Your browser does not support the EyeDropper API";
+                return;
+            }
+
+            const eyeDropper = new EyeDropper();
+
+            eyeDropper
+                .open()
+                .then((result) => {
+                    resultElement.textContent = result.sRGBHex;
+                    resultElement.style.backgroundColor = result.sRGBHex;
+                })
+                .catch((e) => {
+                    resultElement.textContent = e;
+                });
+        })
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="./js/scripts.js"></script>
+
+
+</body>
+
+</html>

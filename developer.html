@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Sudo Brain</title>
+</head>
+
+<body class="text-white">
+    <div class="container py-5">
+        <h1 class="display-1 text-center">A depth analyzing visualizer</h1>
+        <h1 class="text-center display-4">So the visualization!
+        </h1>
+
+
+
+        <div class="row">
+            <div class="col-4">
+                <img src="./img/dog.png" class="img-fluid flip" alt="">
+            </div>
+
+            <div class="col-8 p-5">
+                <div class="text-white text-dark rounded p-3 dialog">
+                    <p class="glass">
+                        When looking at an object, there is always an optimal depth or distance from our
+                        eyes, where the object is most distinct or clear - this is the point where we can just glance at
+                        the object
+                        and we should be able to easily recognize what it is, that is identify it.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="text-center">
+            <img src="./img/crop.png" alt="" class="img-fluid">
+
+        </div>
+
+        <div class="row">
+            <div class="col-8 p-5">
+                <div class="text-white text-dark rounded p-3 dialog">
+                    <p class="glass">
+                        For computers, using machine learning to recognize an image, it's not any different. For any
+                        model, there is
+                        usually a certain distance or depth where it is able to give the most accurate results or
+                        predictions. This
+                        distance might not be a fixed distance, as different models use different algorithms to do the
+                        same task and
+                        thus the distance or optimal depth also vary according to that. Our aim is to build a visualizer
+                        that helps
+                        the developer recognize the optimal distance.
+                    </p>
+                </div>
+            </div>
+            <div class="col-4">
+                <img src="./img/dog.png" class="img-fluid" alt="">
+            </div>
+
+        </div>
+        <div class="text-center">
+            <button class="glow-on-hover mb-5" type="button" id="tellmemore"
+                onclick="show('tellmemore', 'tellmemoresection')">
+                Hmm, tell me more about it
+            </button>
+
+        </div>
+
+        <section id="tellmemoresection" class="hidden">
+            <h1 class="display-4 text-center">Hmm, tell me more about it</h1>
+
+            <img src="./img/carbon.png" alt="" class="img-fluid">
+
+        </section>
+
+        <div class="text-center">
+            <button class="glow-on-hover mb-5" type="button" id="visualization"
+                onclick="show('visualization', 'visualizationsection')">
+                See a visualization
+            </button>
+
+        </div>
+
+        <section class="hidden" id="visualizationsection">
+            <h1 class="display-4 text-center">A prototype of how a well coded visualization might look</h1>
+
+            <div class="text-center">
+                <img src="./img/visual.png" alt="" class="img-fluid">
+
+            </div>
+
+
+
+
+            <div class="row">
+                <div class="col-4">
+                    <img src="./img/dog.png" class="img-fluid flip" alt="">
+                </div>
+
+                <div class="col-8 p-5">
+                    <div class="text-white text-dark rounded p-3 dialog">
+                        <p class="glass">
+                            We can also include features like being able to see the few best visualizations or the
+                            required
+                            depths that allowed the model to give responses with the highest confidence. If we are being
+                            ambitious we can also put all of them together in the form of a video. At this point we can
+                            also
+                            delve deeper into this and build up more visualizations like a graph for example, depth or
+                            distance of object versus accuracy as well, which might also end up being helpful for the
+                            developer. For that, we'd need to run a depth detection algorithm for each iteration and
+                            store
+                            that in our array as well. The possibilities of working and improving on this visualization
+                            is
+                            pretty endless once implemented.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+
+
+        <h1 class="display-4 text-center">Okay, but why is this visualization helpful?</h1>
+
+        <div class="row">
+            <div class="col-8 p-5">
+                <div class="text-white text-dark rounded p-3 dialog">
+                    <p class="glass">
+                        We like to believe that the visualization can be extremely helpful especially for robots like
+                        me! Something like this can help me decide the optimal zoom or depth that I should maintain in
+                        order to be properly able to detect objects around me so that I don't hit anything.
+                    </p>
+                    <p class="glass">
+                        I hope you liked my idea. If you did, please don't forget to help my idea win, I'm sure my
+                        developer friends would be really happy ;b
+
+                    </p>
+                </div>
+            </div>
+            <div class="col-4">
+                <img src="./img/dog.png" class="img-fluid" alt="">
+            </div>
+
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="./js/scripts.js"></script>
+
+
+    <script>
+        const show = (button, content) => {
+            document.querySelector('#' + button).classList.add('hidden')
+            document.querySelector('#' + content).classList.remove('hidden')
+        }
+    </script>
+
+</body>
+
+</html>

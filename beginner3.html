@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Sudo Brain</title>
+</head>
+
+<body class="text-white">
+    <div class="container py-5">
+        <h1 class="text-center display-1">
+            Sudo make pseudo brain
+        </h1>
+        <h1 class="text-center display-4">Demystifying image recognition by team sudobrain
+        </h1>
+
+
+
+        <div class="row">
+            <div class="col-8 p-5">
+                <div class="bg-light text-dark rounded p-5 dialog">
+                    <p>
+                        So, the machine learning model uses this really fancy thing called a <a
+                            href="https://www.ibm.com/cloud/learn/convolutional-neural-networks" target="_blank">Convolutional Neural
+                        Network</a> in order to find out what is in the image.
+                    </p>
+                    <p>
+                        Now what is a
+                        convolutional neural network , woof, that's too big of a word for a small puppy like me.
+                    </p>
+                </div>
+            </div>
+            <div class="col-4">
+                <img src="./img/puppy.png" class="img-fluid flip" alt="">
+            </div>
+        </div>
+
+        <div class="text-center">
+            <img src="./img/cnn.png" alt="" class="col-md-6 ">
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-4">
+                <img src="./img/puppy.png" class="img-fluid" alt="">
+            </div>
+
+            <div class="col-8 p-5">
+                <div class="bg-light text-dark rounded p-5 dialog">
+                    <p>
+                        Woof that's a lot of hidden layers and that's what we need to uncover
+
+                    </p>
+                    <p>
+                        Okay, what I learnt is that the model initially usually detects parts of the image and then
+                        keeps working on the outputs and refining it's searches until it reaches a stage where it is
+                        able to confidently say that it's a flower. So, for our scenario, the model first detects small
+                        elements of the flower - things like the different petals, the stem or the center of the flower.
+                        It is able to do so by comparing it with things that it can see in the pre-existing data set and
+                        recognizing patterns.
+
+                    </p>
+                    <p>
+                        In the next layer, the model tries to put those things together and tries to look at it from a
+                        distance if we say so. So this time, instead of seeing say individual petals, the model sees
+                        about a quarter of the flower or basically bigger pieces. You can think of it as pieces of a
+                        puzzle coming together.
+                    </p>
+                    <p>
+                        Our computer friend is just trying to solve that puzzle piece by piece. Now, as we further, the
+                        model looks at the image as a whole - putting in more pieces of the puzzle together, until it is
+                        finally able to form the image as a whole - or see the image as a whole. What the computer sees
+                        in each step can be visualized through the following illustration.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <img src="./img/pyramid.png" alt="" class="col-md-6 ">
+        </div>
+
+
+        <div class="row">
+            <div class="col-8 p-5">
+                <div class="bg-light text-dark rounded p-5 dialog">
+                    <p>
+                        Each step of the pyramid can be considered one step that the model uses to put the
+                        pieces of the puzzle together in order to make the pretty flower and also tell us that it's a
+                        pretty flower.
+                    </p>
+                    <p>
+                        The model isn't always 100% sure that it's is able to find the right results, so sometimes it
+                        also gives percentages telling us how confident it is with what it is predictions and it might
+                        give us more than one prediction. We can't really blame it though, sometimes I confuse an orange
+                        for a tennis ball too.
+
+                    </p>
+                    <p>
+                        Woof woof, I think image recognition is a really cool technology and it can help us do some
+                        really cool things. I hope I helped you uncover the black box that is usually put over the
+                        process and make it a little less scary for you.
+                    </p>
+                    <div class="row">
+                        <div class="col-11"></div>
+                        <img src="./img/paw.png" alt="" class="col-1 pawprint">
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <img src="./img/puppy.png" class="img-fluid flip" alt="">
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+        document.getElementById("startbtn").addEventListener("click", () => {
+
+            const resultElement = document.getElementById("result");
+
+            if (!window.EyeDropper) {
+                resultElement.textContent = "Your browser does not support the EyeDropper API";
+                return;
+            }
+
+            const eyeDropper = new EyeDropper();
+
+            eyeDropper
+                .open()
+                .then((result) => {
+                    resultElement.textContent = result.sRGBHex;
+                    resultElement.style.backgroundColor = result.sRGBHex;
+                })
+                .catch((e) => {
+                    resultElement.textContent = e;
+                });
+        })
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="./js/scripts.js"></script>
+
+
+</body>
+
+</html>
